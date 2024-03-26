@@ -3,13 +3,13 @@
 namespace App\Livewire\Components\Admin\Categories;
 
 use App\Models\Category;
-
+use App\Traits\WithFeatures;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class Index extends Component
 {
-    use WithPagination;
+    use WithPagination , WithFeatures;
     
     public string $term;
 
@@ -17,6 +17,7 @@ class Index extends Component
     public function updating(){
         $this->resetPage();
     }
+
 
     public function mount(){
         $this->term = '';

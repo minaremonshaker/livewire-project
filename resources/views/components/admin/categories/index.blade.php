@@ -58,6 +58,9 @@
             {{ $categories->links() }}
         </div>
     </div>
+    <livewire:components.admin.categories.create/>
+    <livewire:components.admin.categories.update/>
+    <livewire:components.admin.categories.delete/>
 </div>
 
 

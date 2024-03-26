@@ -23,7 +23,7 @@
                 @endif
                 @if($hasSubmit)
                 <button type="submit" class="btn btn-{{ $color }}" wire:target='store'>
-                    <x-loading title="create" target="store"/>
+                    <x-loading title="{{ $title }}" target="store"/>
                 </button>
                 @endif
             </div>
