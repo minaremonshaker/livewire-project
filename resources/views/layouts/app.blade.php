@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- beautify ignore:start -->
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="{{asset('admin_assets')}}/"
+  data-template="vertical-menu-template-free">
+
+  <x-partials.admin.head>
+    <title>{{ $title }}</title>
+  </x-partials.admin.head>
+
+
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+        <x-partials.admin.sidebar/>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+
+
+          <x-partials.admin.navigation/>
+
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+              {{ $slot }}
+            <!-- / Content -->
+
+            <!-- Footer -->
+            <x-partials.admin.footter/>
+
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+
+    <x-partials.admin.script/>
+  </body>
+</html>
