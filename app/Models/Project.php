@@ -2,27 +2,25 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Project extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
+    public function category(){
 
-    public function projects(){
+        return $this->belongsTo(Category::class);
 
-        return $this->hasMany(Project::class);
     }
-
 
     public function scopeSearch(Builder $query,string $term){
 
         return $query->where('name' , 'like','%' . $term . '%');
         
     }
-
 }

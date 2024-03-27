@@ -8,9 +8,11 @@ use App\Models\Category;
 use App\Models\Counters;
 use App\Models\Local;
 use App\Models\Message;
+use App\Models\Project;
 use App\Models\Service;
 use App\Models\Subscriber;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 use SebastianBergmann\LinesOfCode\Counter;
 
 class DatabaseSeeder extends Seeder
@@ -20,10 +22,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        
+        Schema::disableForeignKeyConstraints();
+
+        //Project::truncate();
+        // Project::factory()->count(3)->for(Category::factory())->create();
 
         Category::truncate();
 
-        Category::factory(10)->create();
+        Category::factory(10)->has(Project::factory()->count(3))->create();
 
         // Message::truncate();
 

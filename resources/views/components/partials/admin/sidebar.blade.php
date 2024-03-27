@@ -119,5 +119,13 @@
         <div data-i18n="Analytics">Categories</div>
       </a>
     </li>
+
+        <!-- Categories -->
+        <li @class(['menu-item','active'=> Route::currentRouteName() === "admin.projects" ])>
+          <a href="{{ route('admin.projects') }}" class="menu-link">
+            <i class='menu-icon tf-icons  bx bxl-product-hunt'></i>
+            <div data-i18n="Analytics">Projects</div>
+          </a>
+        </li>
   </ul>
 </aside>
