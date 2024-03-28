@@ -47,11 +47,6 @@
                                                 <i class="bx bx-trash me-1"></i>
                                                 Delete
                                             </a>
-                                            <a class="dropdown-item" href="#"
-                                                wire:click.prevent="$dispatch('show',{id: {{ $project->id }}})">
-                                                <i class='bx bx-show me-1'></i>
-                                                show
-                                            </a>
                                         </div>
                                     </div>
                                 </td>
@@ -70,9 +65,9 @@
         </div>
     </div>
 
-    {{-- <livewire:components.admin.services.update/>
-    <livewire:components.admin.services.delete/>
-    <livewire:components.admin.services.show/> --}}
+    <livewire:components.admin.projects.update/>
+    <livewire:components.admin.projects.delete/>
+    {{-- <livewire:components.admin.services.show/> --}}
 </div>
 
 
