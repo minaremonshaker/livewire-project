@@ -21,15 +21,14 @@
                     @if (count($projects) > 0)
                         @foreach ($projects as $project)
                             <tr wire:key='{{ $project->id }}'>
-                                <td class="w-50">
+                                <td class="">
                                     <strong>
                                         {{ $project->name }}
                                     </strong>
                                 </td>
-                                <td class="w-50">{{ $project->category->name }}</td>
-                                <td>{{ $project->link }}</td>
-                                <td>{{ $project->image }}</td>
-                                <td>
+                                <td class="">{{ $project->category->name }}</td>
+                                <td><a href="{{ $project->link }}">{{ $project->link }}</a></td>
+                                <td><img src='{{ asset($project->image) }}' height="50" width="50"></td>
                                 <td>
                                     <div class="dropdown">
                                         <button type="button"

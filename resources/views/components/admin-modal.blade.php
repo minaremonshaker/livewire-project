@@ -6,7 +6,7 @@
                 <h5 class="modal-title" id="exampleModalLabel4">{{ $title }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" wire:click="$dispatch('close')"></button>
             </div>
-            <form wire:submit.prevent='{{ $method }}'>
+            <form wire:submit.prevent='{{ $method }}' enctype="multipart/form-data">
                 <div class="modal-body">
                 
                     <div class="row">

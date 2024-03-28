@@ -22,7 +22,8 @@ class Create extends Component
     public string $icon;
 
     
-    public function store(){
+    public function store()
+    {
         $validatedData = $this->validate();
         Service::create($validatedData);
         $this->reset();
@@ -32,7 +33,8 @@ class Create extends Component
     }
 
     #[On('close')]
-    public function close(){
+    public function close()
+    {
         $this->resetValidation();
         $this->reset();
     }

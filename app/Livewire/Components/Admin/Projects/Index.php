@@ -3,12 +3,13 @@
 namespace App\Livewire\Components\Admin\Projects;
 
 use App\Models\Project;
+use App\Traits\WithFeatures;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class Index extends Component
 {
-    use WithPagination;
+    use WithPagination , WithFeatures;
 
     public string $term;
 
