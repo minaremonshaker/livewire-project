@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+use App\Services\MultiModelSearchService;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Message extends Model
 {
-    use HasFactory;
+    use HasFactory ,Searchable;
 
     protected $guarded = ['id'];
 
@@ -18,8 +20,16 @@ class Message extends Model
         'status' => 'string',
     ];
 
-    public function scopeSearch(Builder $query,string $term){
-        return $query->where('name' , 'like','%' . $term . '%');
+    protected $searchOptions = [
+        'query_by' => 'name'
+    ];
+
+    public function toSearchableArray()
+    {
+        return array_merge($this->toArray(), [
+            'id' => (string) $this->id,
+            'created_at' => $this->created_at,
+        ]);
     }
 
     protected function Status():Attribute
@@ -42,5 +52,12 @@ class Message extends Model
             get: fn(string $value) => Carbon::parse($value)->diffForHumans()
         );
     }
+
+    public function scopeForage(Builder $query,string $term){
+
+        return MultiModelSearchService::search(__CLASS__,$term,$this->searchOptions);
+    }
+
+
 
 }

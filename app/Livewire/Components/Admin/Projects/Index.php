@@ -28,7 +28,7 @@ class Index extends Component
     public function render()
     {
         return view('components.admin.projects.index',[
-            'projects' => Project::search($this->term)->paginate(4)
+            'projects' => Project::forage($this->term)
         ]);
 
     }

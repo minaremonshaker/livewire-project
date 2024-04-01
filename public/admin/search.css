@@ -1,0 +1,8 @@
+.search-form{
+    position: relative;
+}
+.search-content{
+    position: absolute;
+    width: 100%;
+    background-color: white;
+}

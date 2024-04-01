@@ -25,6 +25,6 @@ class Index extends Component
 
     public function render()
     {
-        return view('components.admin.categories.index',['categories'=> Category::search($this->term)->paginate(3)]);
+        return view('components.admin.categories.index',['categories'=> Category::forage($this->term) ]);
     }
 }

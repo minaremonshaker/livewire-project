@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\MessagesController;
 use App\Http\Controllers\admin\ProjectsController;
+use App\Http\Controllers\admin\SearchController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\SettingsController;
 use App\Http\Controllers\admin\SkillsController;
@@ -29,6 +30,7 @@ Route::prefix('/admin')->name('admin.')->group(function () {
         Route::get('/messages',[MessagesController::class,'index'])->name('message');
         Route::get('/categories',[CategoriesController::class,'index'])->name('categories');
         Route::get('/projects',[ProjectsController::class,'index'])->name('projects');
+        Route::get('/search' ,[SearchController::class,'index'])->name('search');
     });
 
     Route::get('/login', [AuthenticateSessionController::class, 'create'])->middleware('guest:admin')->name('create');

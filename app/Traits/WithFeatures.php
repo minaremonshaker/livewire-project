@@ -15,6 +15,7 @@ trait WithFeatures{
 
     public function delete($id){}
 
+
     public function show(){}
 
 
