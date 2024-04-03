@@ -13,5 +13,6 @@ class SearchController extends Controller
  
         return view('admin.serach');
     }
+    
 
 }

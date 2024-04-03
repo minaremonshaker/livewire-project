@@ -16,11 +16,24 @@ class GlobalSearch extends Component
 
     use WithPagination;
 
+    #[Url()]
     public string $term = '';
 
     public function show(string $name){
+
+        $searchedModels  = [
+            Category::class,
+            Project::class,
+            Message::class,
+        ];
         
-        $this->redirectRoute('admin.search',['name' => $name]);
+        $searchOptions = [
+            'query_by' => 'name'
+        ];
+
+        $result = MultiModelSearchService::search($searchedModels, $this->term, $searchOptions, 3);
+        
+        $this->redirectRoute('admin.search',['results' => $result]);
     }
 
     public function render()

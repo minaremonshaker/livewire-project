@@ -1,3 +1,3 @@
 <div>
-    {{-- Stop trying to control. --}}
+    @dd($results);
 </div>
